@@ -37,3 +37,9 @@ vignettes/*.pdf
 
 # R Environment Variables
 .Renviron
+
+# ignore Mac config files
+.DS_Store
+
+# raw data
+data-raw
