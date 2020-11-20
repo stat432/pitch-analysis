@@ -1,0 +1,68 @@
+---
+title: "Title of Analysis Goes Here"
+author: "Your Name (netid@illinois.edu)"
+date: "Insert Date Here"
+output:
+  html_document: 
+    theme: default
+    toc: yes
+---
+
+```{r, setup, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE, fig.align = 'center')
+```
+
+```{r, load-packages, include = FALSE}
+# load packages
+```
+
+```{r read-data, warning = FALSE, message = FALSE}
+# read subset of data
+pitches_2020_regular = readr::read_csv("data/pitches_2020_regular.csv")
+pitches_2020_missing = readr::read_csv("data/pitches_2020_missing.csv")
+pitches_2020_post = readr::read_csv("data/pitches_2020_post.csv")
+```
+
+***
+
+## Abstract
+
+> Abstract text goes here.
+
+***
+
+## Introduction
+
+Write your introduction here.
+
+***
+
+## Methods
+
+Describe the methods used in this section.
+
+### Data
+
+Specifically describe the data and how it is used here.
+
+### Modeling
+
+Discuss your modeling and validation strategy here.
+
+***
+
+## Results
+
+State your results here.
+
+***
+
+## Discussion
+
+Discuss your results here.
+
+***
+
+## Appendix
+
+Place potential additional information here.
