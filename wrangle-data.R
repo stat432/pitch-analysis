@@ -66,12 +66,3 @@ pitches_2020_post = pitches_2020 %>%
 readr::write_csv(pitches_2020_regular, "data/pitches_2020_regular.csv")
 readr::write_csv(pitches_2020_missing, "data/pitches_2020_missing.csv")
 readr::write_csv(pitches_2020_post, "data/pitches_2020_post.csv")
-
-################################################################################
-
-
-
-
-
-
-
