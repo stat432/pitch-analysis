@@ -18,9 +18,25 @@ knitr::opts_chunk$set(echo = FALSE, fig.align = 'center')
 
 ```{r read-data, warning = FALSE, message = FALSE}
 # read subset of data
-pitches_2020_regular = readr::read_csv("data/pitches_2020_regular.csv")
-pitches_2020_missing = readr::read_csv("data/pitches_2020_missing.csv")
-pitches_2020_post = readr::read_csv("data/pitches_2020_post.csv")
+pitches_2019_regular_04 = readr::read_csv("data/pitches-2019-regular-04.csv")
+pitches_2019_regular_05 = readr::read_csv("data/pitches-2019-regular-05.csv")
+pitches_2019_regular_06 = readr::read_csv("data/pitches-2019-regular-06.csv")
+pitches_2019_regular_07 = readr::read_csv("data/pitches-2019-regular-07.csv")
+pitches_2019_regular_08 = readr::read_csv("data/pitches-2019-regular-08.csv")
+pitches_2019_regular_09 = readr::read_csv("data/pitches-2019-regular-09.csv")
+pitches_2019_post = readr::read_csv("data/pitches-2019-post.csv")
+```
+
+```{r}
+# merge regular season data
+pitches_2019_regular = dplyr::bind_rows(
+  pitches_2019_regular_04,
+  pitches_2019_regular_05,
+  pitches_2019_regular_06,
+  pitches_2019_regular_07,
+  pitches_2019_regular_08,
+  pitches_2019_regular_09
+)
 ```
 
 ***

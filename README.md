@@ -5,12 +5,9 @@ This repository contains the files necessary to get started with the Classifying
 ## Files and Directories
 
 - `README.md`: The file that you are reading that describes the analysis and data provided.
-- `scrape-data.R`: An R script used to scrape the raw data for the analysis. 
-- `wrangle-data.R`: An R script used to perform data cleaning for use in a STAT 432 analysis.
 - `analysis.Rmd`: A **template** R Markdown file to be used for reporting the results of your analysis.
-- `data/pitches_2020_regular.csv`: A dataset containing pitches with complete data from the 2020 regular season.
-- `data/pitches_2020_missing.csv`: A dataset containing pitches missing the pitch type from the 2020 regular season.
-- `data/pitches_2020_post.csv`: A dataset containing pitches with complete data from the 2020 post season.
+- `data/pitches_2019_regular_**.csv`: A dataset containing pitches with complete data from a particular month of the 2019 regular season.
+- `data/pitches_2019_post.csv`: A dataset containing pitches with complete data from the 2019 post season.
 - `pitches-analysis.Rproj`: An RStudio project file.
 
 ## Source and Documentation
@@ -45,7 +42,7 @@ Essentially, we have access to data related to speed, spin, movement, and positi
 - Verify and augment human labeled pitch types
 - Fill in missing pitch type data
 
-In other words, this could be a helpful tool in a larger data pipeline used by baseball organizations.
+In other words, this could be a helpful tool in a larger data pipeline used by baseball organizations. You might even notice that while watching an MLB game, that the pitch type is shown on the broadcast immediately after the pitch is thrown. This suggests they already have this sort of pipeline developed.
 
 ## Additional Context
 
@@ -56,32 +53,24 @@ Why would we want to do this? You might realize that there isn't much to gain fr
 
 You are given a large number of variables to consider, but also note that more are available in the raw data. Something to keep in mind is that not all variables available to you are appropriate to use, or at least your should consider if they are relevant. For example, the date of the game probably should not influence the type of pitch. And even it was shown to be predictive, we should be suspicious of this. We don't expect you to have full understanding of baseball and be able to determine the appropriateness of each variable, but we'd like you to give this some thought.
 
-Three datasets are available to you:
+Two datasets are available to you:
 
-- `data/pitches_2020_regular.csv`: A dataset containing pitches with complete data from the 2020 regular season.
-- `data/pitches_2020_missing.csv`: A dataset containing pitches missing the pitch type from the 2020 regular season.
-- `data/pitches_2020_post.csv`: A dataset containing pitches with complete data from the 2020 post season.
+- `data/pitches_2019_regular.csv`: A dataset containing pitches with complete data from the 2020 regular season. (This dataset is created within the `analysis.Rmd` file.)
+- `data/pitches_2019_post.csv`: A dataset containing pitches with complete data from the 2020 post season.
 
-Our intentions are for you to:
+You might consider (but are not required to) think about using these datasets as follows:
 
-- Use `pitches_2020_regular` as a training dataset.
-- Use `pitches_2020_post` as a test dataset.
+- Use `pitches_2019_regular` as a training dataset.
+- Use `pitches_2019_post` as a test dataset.
 
 The `pitches_2020_missing` can be ignored if you like, but, consider using your resulting model to make predictions for these pitches that are missing a pitch type. How confident are you in your predictions?
 
 ## Additional Notes
 
-Some modification to the possible pitch types was done during data processing. These were to remove rare pitch types ([knuckleballs](https://en.wikipedia.org/wiki/Knuckleball)) and to group pitches that have different names but are generally agreed to be the same pitch.
+Some modification to the possible pitch types was done during data processing. These were to mostly to remove extremely rare pitch types such as [knuckleballs](https://en.wikipedia.org/wiki/Knuckleball).
 
-- `CH` changeup
-- `CU` curveball (also contains pitches originally labeled `CS` and `KC`)
-- `FF` four seam fastball
-- `FC` cutter
-- `FS` splitter (also contains pitches originally labeled `FO`)
-- `SI` sinker
-- `SL` slider
-- `null` no pitch type recorded
+If you are interested in work with this type of data, you will be interested in resources such as:
 
-The application of these changes can be found in the R scripts in this repository.
-
-The `scrape-data.R` function will create a folder called `data-raw` and write the "full data" broken down by year. **Warning: This will take some time to run.**
+- The [`baseballr`](https://billpetti.github.io/baseballr/) package
+- [Baseball Savant](https://baseballsavant.mlb.com/)
+- [Lahman Baseball Database](https://lahman.r-forge.r-project.org/)
